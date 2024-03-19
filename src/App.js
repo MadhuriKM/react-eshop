@@ -9,7 +9,9 @@ function App() {
     <BrowserRouter>
       <Menu/>
       <ToastContainer autoClose={4000} position='top-right' />
+      <div className='container-main'>
       <Container/>
+      </div>
     </BrowserRouter>
   )
 }
