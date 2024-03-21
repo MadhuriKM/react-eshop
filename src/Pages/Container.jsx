@@ -9,6 +9,7 @@ import Pnf from '../Component/default/Pnf'
 import ProductCart from '../Screen/Cart/ProductCart'
 import Store from '../Screen/Product/Store'
 import ProductCheckout from '../Screen/Checkout/ProductCheckout'
+import SingleProduct from '../Screen/Product/SingleProduct'
 
 function Container() {
   return (
@@ -17,6 +18,7 @@ function Container() {
             <Route path={`/`} element={<Store/>} />
             <Route path={`cart`} element={<ProductCart/>} />
             <Route path={`checkout`} element={<ProductCheckout/>} />
+            <Route path={'/product/:id'} element={<SingleProduct/>} />
             </Route>
         <Route path={`/about`} element={<About/>}/>
         <Route path={`/contact`} element={<Contact/>}/>
