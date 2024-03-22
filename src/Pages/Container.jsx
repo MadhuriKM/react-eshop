@@ -19,7 +19,7 @@ function Container() {
             <Route path={`cart`} element={<ProductCart/>} />
             <Route path={`checkout`} element={<ProductCheckout/>} />
             <Route path={'/product/:id'} element={<SingleProduct/>} />
-            </Route>
+          </Route>
         <Route path={`/about`} element={<About/>}/>
         <Route path={`/contact`} element={<Contact/>}/>
         <Route path={`/login`} element={<Login/>}/>
