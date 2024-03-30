@@ -10,7 +10,7 @@ function PrivateRoute() {
   return (
     <React.Fragment>
       {
-        contextData?.token ? <Outlet/> : <Navigate to={`/login`}/>
+        contextData.token ? <Outlet/> : <Navigate to={`/login`}/>
       }
     </React.Fragment>
   )

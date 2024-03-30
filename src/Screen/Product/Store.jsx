@@ -15,7 +15,7 @@ function Store() {
   const readProducts = async () => {
     await axios.get(`${url}/products`)
     .then(res => {
-      console.log(`products =`, res.data)
+      //console.log(`products =`, res.data)
       // if query is present
       if(query.get('category')) {
         let data = res.data.filter(item => item.category === query.get('category'))
