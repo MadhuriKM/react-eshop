@@ -36,10 +36,10 @@ function ProductCart() {
                       <td> &#8377; {  item.price } </td>
                       <td>
                         <button onClick={() => decr(item.id)} className='btn decr'>-</button>
-                          <strong> { item.quantity} </strong>
+                          <strong> { item?.quantity} </strong>
                         <button onClick={() => incr(item.id)} className='btn incr'>+</button>
                       </td>
-                      <td> &#8377; { item.quantity * item.price } </td>
+                      <td> &#8377; { item?.quantity * item.price } </td>
                       <td>
                         <button onClick={() => removeCart(item.id)} className="btn decr">
                           <i className="bi bi-trash"></i>

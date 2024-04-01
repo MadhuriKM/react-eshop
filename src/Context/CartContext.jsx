@@ -102,7 +102,11 @@ function CartProvider(props) {
        if(cartItem) {
          let newCart = storedCart.map(item => {
            if(item.id === id) {
+            if(item.quantity < 1) {
+              return { ...item, quantity:1}
+            } else {
              return { ...item, quantity:item.quantity - 1}
+            }
            } else {
              return item
            }
@@ -111,7 +115,7 @@ function CartProvider(props) {
          window.location.reload()
        }
 
-       if(cartItem.quantity < 1){
+       if(cartItem.quantity <= 1){
          removeCart(id)
        }
     }

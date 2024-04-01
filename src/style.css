@@ -316,7 +316,7 @@ header .navbar {
  }
 
  .decr{
-  background-color: rgb(153, 255, 0);
+  background-color: rgb(237, 24, 60);
  }
 
  .table strong{
@@ -329,9 +329,9 @@ header .navbar {
  .cart .circle { 
  background-color: green;
  color: #fff;
- width: 30px;
- height: 30px;
- border-radius: 50px;
+ width: 10px;
+ height: 10px;
+ border-radius: 50%;
  font-size: 0.8rem;
  padding: 5px;
  display: flex;
@@ -339,5 +339,5 @@ header .navbar {
  justify-content: center;
  position: absolute;
  top: -6px;
- left: -10px;
+ right: -10px;
  }
