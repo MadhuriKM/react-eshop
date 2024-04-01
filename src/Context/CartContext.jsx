@@ -21,7 +21,7 @@ function CartProvider(props) {
 
     // add to cart
     const addToCart = (product) => {
-      console.log('cart', product)
+     // console.log('cart', product)
       // store the data in localstorage
       let storedCart = JSON.parse(localStorage.getItem("cart")) || []
       let extItem = storedCart.find(item => item.id === product.id)
@@ -36,6 +36,7 @@ function CartProvider(props) {
         storedCart.push(cartItem)
         localStorage.setItem("cart", JSON.stringify(storedCart))
         toast.success("Product added to cart")
+        window.location.reload()
       }
     }
 
@@ -57,16 +58,63 @@ function CartProvider(props) {
       localStorage.setItem("cart", JSON.stringify(storedCart))
       setCart(storedCart)
       toast.success("Product deleted from cart")
+      window.location.reload()
     }
 
     // clear cart
-    const clearCart = () => {}
+    const clearCart = () => {
+      if(window.confirm(`Are you sure to clear complete Cart?`)) {
+        localStorage.removeItem("cart")
+        toast.success("Cart cleared successfully")
+        window.location.reload()
+      }
+    }
 
     // increment cart item quantity
-    const incr = (id) => {}
+    const incr = (id) => {
+      // read cart data
+      let storedCart = JSON.parse(localStorage.getItem("cart")) || []
+
+      let cartItem = storedCart.find(item => item.id === id) 
+
+      if(cartItem) {
+        let newCart = storedCart.map(item => {
+          if(item.id === id) {
+            return { ...item, quantity:item.quantity + 1}
+          } else {
+            return item
+          }
+        })
+        localStorage.setItem("cart", JSON.stringify(newCart))
+        window.location.reload()
+      }
+    }
 
     // decrement cart item quantity
-    const decr = (id) => {}
+    const decr = (id) => {
+       // read cart data
+       let storedCart = JSON.parse(localStorage.getItem("cart")) || []
+
+       let cartItem = storedCart.find(item => item.id === id) 
+
+       console.log('cartItem =', cartItem)
+ 
+       if(cartItem) {
+         let newCart = storedCart.map(item => {
+           if(item.id === id) {
+             return { ...item, quantity:item.quantity - 1}
+           } else {
+             return item
+           }
+         })
+         localStorage.setItem("cart", JSON.stringify(newCart))
+         window.location.reload()
+       }
+
+       if(cartItem.quantity < 1){
+         removeCart(id)
+       }
+    }
   return (
     <CartContext.Provider value={{cartData, addToCart, removeCart, clearCart, incr, decr }}>
       {

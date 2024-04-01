@@ -4,7 +4,7 @@ export const AuthContext = createContext()
 
 function AuthProvider(props) {
     const [token,setToken] = useState(() => {
-      return localStorage.getItem("toke") || false
+      return localStorage.getItem("token") || false
     })
 
     let contextData = useMemo(() => ({

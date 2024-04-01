@@ -4,7 +4,7 @@ import { toast } from 'react-toastify'
 import useCart  from '../../CustomHook/Cart'
 
 function ProductCart() {
-  const { cartData, removeCart } = useCart()
+  const { cartData, removeCart, decr, incr, clearCart } = useCart()
 
   return (
     <div className='container'>
@@ -13,6 +13,11 @@ function ProductCart() {
           <h3>Cart Info</h3>
           <table className="table">
             <thead>
+              <tr>
+                <th colSpan={6}>
+                  <button onClick={() => clearCart()} className="btn decr">Clear Cart</button>
+                </th>
+              </tr>
               <tr>
                 <th>Title</th>
                 <th>Image</th>
@@ -30,9 +35,9 @@ function ProductCart() {
                       <td> <img src={item?.image} alt="no image" height={50} width={50} /> </td>
                       <td> &#8377; {  item.price } </td>
                       <td>
-                        <button className='btn decr'>-</button>
+                        <button onClick={() => decr(item.id)} className='btn decr'>-</button>
                           <strong> { item.quantity} </strong>
-                        <button className='btn incr'>+</button>
+                        <button onClick={() => incr(item.id)} className='btn incr'>+</button>
                       </td>
                       <td> &#8377; { item.quantity * item.price } </td>
                       <td>
